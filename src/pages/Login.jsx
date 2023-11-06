@@ -7,10 +7,9 @@ import { FcGoogle } from 'react-icons/fc'
 import { useContext, useState } from 'react';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import Swal from 'sweetalert2';
-// import Sweet from '../Components/Sweetalert/Sweet';
+
 const Login = () => {
-    // const [email, setEmail] = useState('');
-    // const [password, setPassword] = useState('');
+
     const { logIn, SignInGoogle } = useContext(AuthContext);
     const goTo = useNavigate();
     const handleSignin = async (e) => {

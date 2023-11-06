@@ -1,0 +1,52 @@
+[
+    {
+        "id": 1,
+        "title": "Software Engineer",
+        "company": "Tech Co.",
+        "location": "New York, NY",
+        "type": "Full",
+        "description": "Join our software engineering team and work on exciting projects!",
+        "salary": "$90,000 - $110,000",
+        "postedDate": "2023-11-05"
+    },
+    {
+        "id": 2,
+        "title": "Graphic Designer",
+        "company": "Design Studio",
+        "location": "Los Angeles, CA",
+        "type": "Part",
+        "description": "Create stunning visual designs for our clients.",
+        "salary": "$25 - $30 per hour",
+        "postedDate": "2023-11-04"
+    },
+    {
+        "id": 3,
+        "title": "Customer Support Specialist",
+        "company": "SupportTech",
+        "location": "Remote",
+        "type": "Remote",
+        "description": "Provide excellent customer support from the comfort of your home.",
+        "salary": "$40,000 - $45,000",
+        "postedDate": "2023-11-03"
+    },
+    {
+        "id": 4,
+        "title": "Data Analyst",
+        "company": "Data Insights",
+        "location": "San Francisco, CA",
+        "type": "Hybrid",
+        "description": "Analyze and interpret data for actionable insights.",
+        "salary": "$75,000 - $85,000",
+        "postedDate": "2023-11-02"
+    },
+    {
+        "id": 5,
+        "title": "Marketing Manager",
+        "company": "Marketing Pro",
+        "location": "Chicago, IL",
+        "type": "Full",
+        "description": "Lead our marketing efforts and drive growth.",
+        "salary": "$80,000 - $95,000",
+        "postedDate": "2023-11-01"
+    }
+]

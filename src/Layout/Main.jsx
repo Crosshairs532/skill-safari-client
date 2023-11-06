@@ -8,7 +8,7 @@ const Main = () => {
     const location = useLocation();
     return (
         <div>
-            <div className={`${location.pathname == '/' ? " banner min-h-screen" : ""}`}>
+            <div className={`${location.pathname == '/' ? " banner min-h-screen" : ""} bg-sky-800`}>
                 <Header></Header>
                 {
                     location.pathname == '/' && <Banner></Banner>
