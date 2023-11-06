@@ -6,25 +6,59 @@ import { Link, useNavigate } from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc'
 import { useContext, useState } from 'react';
 import { AuthContext } from '../AuthProvider/AuthProvider';
+import Swal from 'sweetalert2';
+// import Sweet from '../Components/Sweetalert/Sweet';
 const Login = () => {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const { logIn } = useContext(AuthContext);
+    // const [email, setEmail] = useState('');
+    // const [password, setPassword] = useState('');
+    const { logIn, SignInGoogle } = useContext(AuthContext);
     const goTo = useNavigate();
     const handleSignin = async (e) => {
 
         e.preventDefault()
+        const email = e.target.email.value;
+        const password = e.target.password.value;
         console.log(email, password);
 
         try {
             const res = await logIn(email, password);
 
             console.log(res);
+            Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "Your work has been saved",
+                showConfirmButton: false,
+                timer: 1500
+            });
             goTo('/')
         }
         catch (err) {
             console.log(err);
         }
+    }
+
+    const handleGoogle = () => {
+        SignInGoogle()
+            .then(() => {
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Your work has been saved",
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+
+                goTo('/')
+            })
+            .catch((er) => {
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "Something went wrong!",
+                    footer: `${er.message}`
+                });
+            })
     }
     return (
         <div>
@@ -41,7 +75,8 @@ const Login = () => {
                                         <div className=' flex items-center gap-4'>
                                             <label htmlFor="email"><h1 className=' text-4xl'><MdMarkEmailUnread></MdMarkEmailUnread></h1></label>
 
-                                            <input onBlur={(e) => setEmail(e.target.value)} id='email' type="email" placeholder="email" className="input w-full input-bordered" required />
+                                            {/* <input onBlur={(e) => setEmail(e.target.value)} id='email' type="email" placeholder="email" className="input w-full input-bordered" required /> */}
+                                            <input name='email' id='email' type="email" placeholder="email" className="input w-full input-bordered" required />
                                         </div>
                                     </div>
                                     <div className="form-control">
@@ -49,7 +84,8 @@ const Login = () => {
                                             <label htmlFor="password">
                                                 <h1 className=' text-4xl'><BsKey></BsKey></h1>
                                             </label>
-                                            <input onBlur={(e) => setPassword(e.target.value)} type="password" id="password" placeholder="password" className="input w-full input-bordered" required />
+                                            {/* <input onBlur={(e) => setPassword(e.target.value)} type="password" id="password" placeholder="password" className="input w-full input-bordered" required /> */}
+                                            <input name='password' type="password" id="password" placeholder="password" className="input w-full input-bordered" required />
 
                                         </div>
                                     </div>
@@ -60,7 +96,7 @@ const Login = () => {
                                 <p className=' text-center'>Don't Have any account? <br className=' lg:hidden block md:hidden' /> <Link to='/register' className=' text-xl font-bold text-cyan-700'>Register Now</Link></p>
                             </div>
                             <div className=' bg-base-100 shadow-2xl p-3 rounded-xl'>
-                                <button className=' text-4xl'><FcGoogle></FcGoogle></button>
+                                <button onClick={handleGoogle} className=' text-4xl'><FcGoogle></FcGoogle></button>
                             </div>
                         </div>
                         <div className=' hidden lg:block md:block'>

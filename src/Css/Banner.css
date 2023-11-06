@@ -1,7 +1,7 @@
 .banner {
-    /* background-image: ;
-     */
-    background-color: cornflowerblue;
+    background-image: url('../assets/wave.png');
+
+    /* background-color: cornflowerblue; */
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;

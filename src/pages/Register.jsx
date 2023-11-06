@@ -4,38 +4,64 @@ import Lottie from 'lottie-react';
 import { MdMarkEmailUnread } from "react-icons/md";
 import { BsKey } from 'react-icons/bs'
 import { CgProfile } from 'react-icons/cg';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useContext, useState } from 'react';
 import { HiPhotograph } from 'react-icons/hi'
 import { AuthContext } from '../AuthProvider/AuthProvider';
-import toast from 'react-hot-toast';
+// import toast from 'react-hot-toast';
 import { updateProfile } from 'firebase/auth';
-import auth from '../Config/firebase.config';
+import Swal from 'sweetalert2'
+// import auth from '../Config/firebase.config';
 const Register = () => {
-    const [email, setEmail] = useState('');
-    const [name, setName] = useState('');
-    const [password, setPassword] = useState('');
-    const [photo, setPhoto] = useState('');
+    // const [email, setEmail] = useState('');
+    // const [name, setName] = useState('');
+    // const [password, setPassword] = useState('');
+    // const [photo, setPhoto] = useState('');
+    const goTo = useNavigate();
     const { createUser } = useContext(AuthContext);
-    const handleRegister = async (e) => {
-        e.preventDefault();
-        try {
-            const res = await createUser(email, password);
-            console.log(res, "response");
-            updateProfile(auth.currentUser, {
-                displayName: name,
-                photoURL: photo,
-            })
-                .then(() => { })
-                .catch((er) => { console.log(er); })
-            toast.success('Successfully created!');
-        }
-        catch (error) {
-            console.log(error, "Registration error");
-        }
 
+    const handleRegister = (e) => {
+        e.preventDefault();
+        const email = e.target.email.value;
+        const name = e.target.name.value;
+        const password = e.target.password.value;
+        const photo = e.target.photo.value;
         console.log(email, name, password, photo);
+
+        createUser(email, password)
+            .then(res => {
+                console.log(res, "response");
+                updateProfile(res.user, {
+                    displayName: name,
+                    photoURL: photo,
+                })
+                    .then(() => { })
+                    .catch((er) => { console.log(er); })
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Your work has been saved",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+
+                goTo('/')
+                location.reload();
+
+            })
+            .catch(er => {
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "Something went wrong!",
+                    footer: `${er.message}`
+                });
+            })
+
+
     }
+
+
     return (
         <div>
             <div className=" relative">
@@ -51,7 +77,8 @@ const Register = () => {
                                         <label htmlFor="photo">
                                             <h1 className=' text-4xl'><HiPhotograph></HiPhotograph></h1>
                                         </label>
-                                        <input onBlur={(e) => setPhoto(e.target.value)} id='photo' type="text" placeholder="Enter Your photo URL.." className="input w-full input-bordered" required />
+                                        {/* <input onBlur={(e) => setPhoto(e.target.value)} id='photo' type="text" placeholder="Enter Your photo URL.." className="input w-full input-bordered" required /> */}
+                                        <input name='photo' id='photo' type="text" placeholder="Enter Your photo URL.." className="input w-full input-bordered" required />
                                     </div>
                                 </div>
                                 <div className="form-control">
@@ -59,7 +86,8 @@ const Register = () => {
                                         <label htmlFor="name">
                                             <h1 className=' text-4xl'><CgProfile></CgProfile></h1>
                                         </label>
-                                        <input onBlur={(e) => setName(e.target.value)} id='name' type="text" placeholder="Enter Your Name..." className="input w-full input-bordered" required />
+                                        {/* <input onBlur={(e) => setName(e.target.value)} id='name' type="text" placeholder="Enter Your Name..." className="input w-full input-bordered" required /> */}
+                                        <input name='name' id='name' type="text" placeholder="Enter Your Name..." className="input w-full input-bordered" required />
                                     </div>
                                 </div>
                                 <div className="form-control">
@@ -67,7 +95,8 @@ const Register = () => {
 
                                         <label htmlFor="email"><h1 className=' text-4xl'><MdMarkEmailUnread></MdMarkEmailUnread></h1></label>
 
-                                        <input onBlur={(e) => setEmail(e.target.value)} id='email' type="email" placeholder="Enter Your Email..." className="input w-full input-bordered" required />
+                                        {/* <input onBlur={(e) => setEmail(e.target.value)} id='email' type="email" placeholder="Enter Your Email..." className="input w-full input-bordered" required /> */}
+                                        <input name='email' id='email' type="email" placeholder="Enter Your Email..." className="input w-full input-bordered" required />
                                     </div>
                                 </div>
                                 <div className="form-control">
@@ -75,7 +104,7 @@ const Register = () => {
                                         <label htmlFor=" password">
                                             <h1 className=' text-4xl'><BsKey></BsKey></h1>
                                         </label>
-                                        <input onBlur={(e) => setPassword(e.target.value)} type="password" id="password" placeholder=" Enter password...." className="input w-full input-bordered" required />
+                                        <input name='password' type="password" id="password" placeholder=" Enter password...." className="input w-full input-bordered" required />
 
                                     </div>
                                 </div>

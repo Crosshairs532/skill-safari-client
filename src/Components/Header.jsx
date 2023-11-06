@@ -5,6 +5,7 @@ import '../Css/Banner.css'
 import { useContext } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import AfterLogin from "./UserCanSee/AfterLogin";
+import Swal from "sweetalert2";
 const Header = () => {
     const navigate = useNavigate();
     const { user, logout } = useContext(AuthContext);
@@ -14,7 +15,13 @@ const Header = () => {
     const handleLogout = async () => {
         try {
             const res = await logout();
-            console.log(res);
+            Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: `${res, user.displayName} logged out`,
+                showConfirmButton: false,
+                timer: 1500
+            });
         }
         catch (err) {
             console.log(err);

@@ -1,13 +1,18 @@
 import { createContext, useEffect, useState } from "react";
 import helmet from "helmet";
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import auth from "../Config/firebase.config";
 export const AuthContext = createContext();
+
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [isLoading, setLoading] = useState(true);
 
-
+    const googleProvider = new GoogleAuthProvider();
+    const SignInGoogle = () => {
+        setLoading(true)
+        return signInWithPopup(auth, googleProvider);
+    }
 
     const createUser = (email, password) => {
         setLoading(true)
@@ -23,7 +28,7 @@ const AuthProvider = ({ children }) => {
         return signOut(auth);
     }
     useEffect(() => {
-        // console.log("enter");
+
         const Unsubscribe = onAuthStateChanged(auth, currentUser => {
             console.log(currentUser, "User Loggin in");
             setUser(currentUser)
@@ -32,7 +37,7 @@ const AuthProvider = ({ children }) => {
         return () => Unsubscribe();
     }, [])
 
-    const authInfo = { helmet, createUser, logIn, user, isLoading, logout }
+    const authInfo = { helmet, createUser, logIn, user, isLoading, logout, SignInGoogle }
     return (
         <AuthContext.Provider value={authInfo}>
             {
