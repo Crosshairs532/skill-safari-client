@@ -1,52 +1,86 @@
 [
     {
         "id": 1,
-        "title": "Software Engineer",
-        "company": "Tech Co.",
-        "location": "New York, NY",
         "type": "Full",
-        "description": "Join our software engineering team and work on exciting projects!",
+        "postedBy": "John Smith",
+        "title": "Software Engineer",
+        "postedDate": "2023-11-05",
+        "applicationDeadline": "2023-11-20",
         "salary": "$90,000 - $110,000",
-        "postedDate": "2023-11-05"
+        "applicantsNumber": 15,
+        "description": "Join our software engineering team and work on exciting projects!",
+        "url": "job-details/1"
     },
     {
         "id": 2,
-        "title": "Graphic Designer",
-        "company": "Design Studio",
-        "location": "Los Angeles, CA",
         "type": "Part",
-        "description": "Create stunning visual designs for our clients.",
+        "postedBy": "Jane Doe",
+        "title": "Graphic Designer",
+        "postedDate": "2023-11-04",
+        "applicationDeadline": "2023-11-18",
         "salary": "$25 - $30 per hour",
-        "postedDate": "2023-11-04"
+        "applicantsNumber": 10,
+        "description": "Create stunning visual designs for our clients.",
+        "url": "job-details/2"
     },
     {
         "id": 3,
-        "title": "Customer Support Specialist",
-        "company": "SupportTech",
-        "location": "Remote",
         "type": "Remote",
-        "description": "Provide excellent customer support from the comfort of your home.",
-        "salary": "$40,000 - $45,000",
-        "postedDate": "2023-11-03"
+        "postedBy": "Mark Johnson",
+        "title": "Content Writer",
+        "postedDate": "2023-11-03",
+        "applicationDeadline": "2023-11-17",
+        "salary": "$35,000 - $45,000",
+        "applicantsNumber": 12,
+        "description": "Create engaging content for various platforms from anywhere.",
+        "url": "job-details/3"
     },
     {
         "id": 4,
-        "title": "Data Analyst",
-        "company": "Data Insights",
-        "location": "San Francisco, CA",
-        "type": "Hybrid",
-        "description": "Analyze and interpret data for actionable insights.",
-        "salary": "$75,000 - $85,000",
-        "postedDate": "2023-11-02"
+        "type": "Remote",
+        "postedBy": "Emily Wilson",
+        "title": "UX Designer",
+        "postedDate": "2023-11-02",
+        "applicationDeadline": "2023-11-16",
+        "salary": "$60,000 - $75,000",
+        "applicantsNumber": 8,
+        "description": "Design seamless user experiences remotely with a creative team.",
+        "url": "job-details/4"
     },
     {
         "id": 5,
-        "title": "Marketing Manager",
-        "company": "Marketing Pro",
-        "location": "Chicago, IL",
         "type": "Full",
-        "description": "Lead our marketing efforts and drive growth.",
-        "salary": "$80,000 - $95,000",
-        "postedDate": "2023-11-01"
+        "postedBy": "Michael Brown",
+        "title": "Product Manager",
+        "postedDate": "2023-11-01",
+        "applicationDeadline": "2023-11-15",
+        "salary": "$100,000 - $120,000",
+        "applicantsNumber": 20,
+        "description": "Lead product development and innovation within our company.",
+        "url": "job-details/5"
+    },
+    {
+        "id": 6,
+        "type": "Part",
+        "postedBy": "Sarah Davis",
+        "title": "Accounting Assistant",
+        "postedDate": "2023-10-31",
+        "applicationDeadline": "2023-11-14",
+        "salary": "$20 - $25 per hour",
+        "applicantsNumber": 7,
+        "description": "Assist with financial tasks on a part-time basis.",
+        "url": "job-details/6"
+    },
+    {
+        "id": 7,
+        "type": "Hybrid",
+        "postedBy": "David Lee",
+        "title": "Sales Representative",
+        "postedDate": "2023-10-30",
+        "applicationDeadline": "2023-11-13",
+        "salary": "$45,000 - $55,000",
+        "applicantsNumber": 11,
+        "description": "Combine remote and in-person sales efforts for our growing client base.",
+        "url": "job-details/7"
     }
 ]

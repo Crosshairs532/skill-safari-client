@@ -1,17 +1,19 @@
+/* eslint-disable react/no-unescaped-entities */
 import login from '../assets/login.json'
 import Lottie from 'lottie-react';
 import { MdMarkEmailUnread } from "react-icons/md";
 import { BsKey } from 'react-icons/bs'
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc'
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import Swal from 'sweetalert2';
 
 const Login = () => {
-
+    const location = useLocation();
     const { logIn, SignInGoogle } = useContext(AuthContext);
     const goTo = useNavigate();
+    console.log(location, "login");
     const handleSignin = async (e) => {
 
         e.preventDefault()
@@ -30,7 +32,10 @@ const Login = () => {
                 showConfirmButton: false,
                 timer: 1500
             });
-            goTo('/')
+
+            {
+                location?.state ? goTo(location.state) : goTo('/')
+            }
         }
         catch (err) {
             console.log(err);
@@ -48,7 +53,10 @@ const Login = () => {
                     timer: 1500
                 })
 
-                goTo('/')
+
+                {
+                    location?.state ? goTo(location.state) : goTo('/')
+                }
             })
             .catch((er) => {
                 Swal.fire({
