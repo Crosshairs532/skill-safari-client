@@ -36,17 +36,17 @@ const Update = ({ job }) => {
         const postdate1 = postdate.toISOString().split('T')[0];
         const deadline1 = deadline.toISOString().split('T')[0];
         const EachJob = { image, Pname, Jtitle, salary, Jtype, applicants, description, postdate1, deadline1 };
-
+        console.log(EachJob);
 
         fetch(`http://localhost:4000/allJobs/${_id}`, {
             method: "PUT",
             headers: {
-                "content-type": "application-json"
+                "content-type": "application/json"
             },
             body: JSON.stringify(EachJob)
         })
-            .then()
-            .then()
+            .then(res => { console.log(res); })
+            .catch(er => { console.log(er); })
     }
 
 
