@@ -1,18 +1,45 @@
 import React, { useEffect, useState } from 'react';
 import EachData from '../Components/EachData';
+import SearchBar from '../Components/Search_related/SearchBar';
 
 const Alljobs = () => {
     const [alljob, setJobs] = useState(null);
+    const [searchItem, setSearchitem] = useState();
+
     useEffect(() => {
         fetch('http://localhost:4000/allJobs')
             .then(res => res.json())
-            .then(data => setJobs(data))
+            .then(data => {
+                setJobs(data);
+                setSearchitem(data)
+            })
 
     }, [])
 
+    const handleSearch = (query) => {
+        console.log(query);
+        if (query) {
+            const filteredJobs =
+                alljob.filter((job) => job.title.toLowerCase().includes(query.toLowerCase()));
+            console.log(filteredJobs, "why man");
+            setSearchitem(filteredJobs)
+
+        } else {
+            setSearchitem(alljob)
+        }
+
+    };
+
+
+
+
+
+
+
     return (
         <div>
-            <div className="overflow-x-auto">
+            <SearchBar onSearch={handleSearch}></SearchBar>
+            <div className="overflow-x-auto container mx-auto">
                 <table className="table">
                     {/* head */}
                     <thead>
@@ -32,7 +59,7 @@ const Alljobs = () => {
                     </thead>
                     <tbody>
                         {
-                            alljob?.map(job => <EachData key={job.id} job={job} ></EachData>)
+                            searchItem?.map(job => <EachData key={job.id} job={job} ></EachData>)
                         }
                     </tbody>
                     {/* foot */}
