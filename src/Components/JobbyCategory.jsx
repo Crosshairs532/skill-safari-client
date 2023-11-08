@@ -12,56 +12,23 @@ const JobbyCategory = ({ job }) => {
     const { user } = useContext(AuthContext)
     const location = useLocation();
     console.log(job, "job by category");
-    const { id,
-        type,
-        postedBy,
-        title,
-        postedDate,
-        applicationDeadline,
+    const { _id,
+        image,
+        Pname,
+        Jtitle,
         salary,
-        applicantsNumber,
+        Jtype,
+        applicants,
         description,
-        url, } = job
-    // const handleDetails = () => {
-    //     if (!user) {
-    //         const swalWithBootstrapButtons = Swal.mixin({
-    //             customClass: {
-    //                 confirmButton: "btn btn-success",
-    //                 cancelButton: "btn btn-danger"
-    //             },
-    //             buttonsStyling: false
-    //         });
-    //         swalWithBootstrapButtons.fire({
-    //             title: "Are you sure?",
-    //             text: "You won't be able to revert this!",
-    //             icon: "warning",
-    //             showCancelButton: true,
-    //             confirmButtonText: "Yes, delete it!",
-    //             cancelButtonText: "No, cancel!",
-    //             reverseButtons: true
-    //         }).then((result) => {
-    //             if (result.isConfirmed) {
-    //                 swalWithBootstrapButtons.fire({
-    //                     title: "Deleted!",
-    //                     text: "Your file has been deleted.",
-    //                     icon: "success"
-    //                 });
-    //             } else if (
-    //                 /* Read more about handling dismissals below */
-    //                 result.dismiss === Swal.DismissReason.cancel
-    //             ) {
-    //                 swalWithBootstrapButtons.fire({
-    //                     title: "Cancelled",
-    //                     text: "Your imaginary file is safe :)",
-    //                     icon: "error"
-    //                 });
-    //             }
-    //         });
-    //     }
-    //     else {
+        postdate1,
+        deadline1
 
-    //     }
-    // }
+    } = job
+    const handleDetails = (id) => {
+        fetch(`http://localhost:4000/allJobs/details?id=${id}`)
+            .then(res => res.json())
+            .then(data => console.log(data))
+    }
     return (
         <div>
             <div className=" p-7 w-[400px] bg-base-100 shadow-xl space-y-5 rounded-lg">
@@ -86,21 +53,21 @@ const JobbyCategory = ({ job }) => {
                 </div>
 
                 <div>
-                    <h2 className=" text-2xl font-bold">{title}</h2>
-                    <p className=" text-sm">by {postedBy}</p>
-                    <p>Posted Date: {postedDate}</p>
+                    <h2 className=" text-2xl font-bold">{Jtitle}</h2>
+                    <p className=" text-sm">by {Pname}</p>
+                    <p>Posted Date: {postdate1}</p>
                 </div>
                 <div className=" flex justify-around items-center gap-3">
-                    <button className="btn btn-outline bg-red-200 p-3 rounded-2xl w-[100px]"><h3>{type}</h3></button>
-                    <p>Job Id: {id}</p>
+                    <button className="btn btn-outline bg-red-200 p-3 rounded-2xl  w-[100px]">{Jtype}</button>
+                    <p>Job Id: {applicants}</p>
                     <p className=" btn btn-outline">{salary}</p>
 
 
                 </div>
 
                 <div className=" flex justify-between items-center">
-                    <h3>Deadline: {applicationDeadline}</h3>
-                    <Link to='details'> <button className="btn btn-primary">View Details</button></Link>
+                    <h3>Deadline: {deadline1}</h3>
+                    <Link to={`details/${_id}`}> <button onClick={() => handleDetails(_id)} className="btn btn-primary">View Details</button></Link>
                 </div>
 
             </div>

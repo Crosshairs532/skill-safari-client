@@ -34,14 +34,14 @@ const CategorySection = () => {
                 <TabList className=" text-center">
                     <Tab onClick={() => handleJobsSearch('')}>All Jobs</Tab>
                     <Tab onClick={() => handleJobsSearch('Remote')}>Remote Jobs</Tab>
-                    <Tab onClick={() => handleJobsSearch('Full')}>Full Time Jobs</Tab>
-                    <Tab onClick={() => handleJobsSearch('Part')}>Part Time Jobs</Tab>
+                    <Tab onClick={() => handleJobsSearch('Part-Time')}>Part Time Jobs</Tab>
                     <Tab onClick={() => handleJobsSearch('Hybrid')}>Hybrid-jobs</Tab>
+                    <Tab onClick={() => handleJobsSearch('On Site')}>On Site</Tab>
                 </TabList>
 
                 <TabPanel className=" mt-6">
                     <>
-                        <h1 className=' ' >panner</h1>
+                        <h1 className=' ' >All</h1>
                         <div className=' grid lg:grid-cols-3 gap-3 place-items-center mx-auto border-2 bg-slate-600'>
                             {
                                 allJobs?.map((job, idx) => <JobbyCategory key={idx} job={job}></JobbyCategory>)
@@ -59,15 +59,7 @@ const CategorySection = () => {
                     </div>
                 </TabPanel>
                 <TabPanel>
-                    <h2>Full</h2>
-                    <div className=' grid lg:grid-cols-3 gap-3 place-items-center mx-auto border-2 bg-slate-600'>
-                        {
-                            categoryWise.map((job, idx) => <JobbyCategory key={idx} job={job}></JobbyCategory>)
-                        }
-                    </div>
-                </TabPanel>
-                <TabPanel>
-                    <h2>Part</h2>
+                    <h2>Part-time</h2>
                     <div className=' grid lg:grid-cols-3 gap-3 place-items-center mx-auto border-2 bg-slate-600'>
                         {
                             categoryWise.map((job, idx) => <JobbyCategory key={idx} job={job}></JobbyCategory>)
@@ -76,6 +68,14 @@ const CategorySection = () => {
                 </TabPanel>
                 <TabPanel>
                     <h2>Hybrid</h2>
+                    <div className=' grid lg:grid-cols-3 gap-3 place-items-center mx-auto border-2 bg-slate-600'>
+                        {
+                            categoryWise.map((job, idx) => <JobbyCategory key={idx} job={job}></JobbyCategory>)
+                        }
+                    </div>
+                </TabPanel>
+                <TabPanel>
+                    <h2>on-site</h2>
                     <div className=' grid lg:grid-cols-3 gap-3 place-items-center mx-auto border-2 bg-slate-600'>
                         {
                             categoryWise.map((job, idx) => <JobbyCategory key={idx} job={job}></JobbyCategory>)
