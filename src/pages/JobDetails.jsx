@@ -29,6 +29,7 @@ const JobDetails = () => {
                     {/* <button className=" btn btn-secondary">Apply Now</button> */}
                     <Modal load={load} ></Modal>
 
+
                 </div>
                 <div className=" flex gap-3 flex-col justify-center  items-center">
                     <div className="logo">

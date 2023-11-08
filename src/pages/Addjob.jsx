@@ -22,7 +22,7 @@ const Addjob = () => {
         const applicants = e.target.vacancy.value;
         const postdate1 = postdate.toISOString().split('T')[0];
         const deadline1 = deadline.toISOString().split('T')[0];
-        const EachJob = { image, Pname, Jtitle, salary, Jtype, applicants, description, postdate1, deadline1 };
+        const EachJob = { image, Pname, Jtitle, salary, Jtype, applicants, description, postdate1, deadline1, Pemail: user.email };
         console.log(EachJob);
         fetch('http://localhost:4000/allJobs', {
 

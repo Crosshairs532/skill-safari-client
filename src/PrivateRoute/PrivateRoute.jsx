@@ -3,10 +3,21 @@ import { useContext } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { Navigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { ThreeDots } from 'react-loader-spinner'
 const PrivateRoute = ({ children }) => {
     const { user, isLoading } = useContext(AuthContext);
     if (isLoading) {
-        return < h1 > Loading....</h1 >
+        return <ThreeDots
+            height="80"
+            width="80"
+            radius="9"
+            color="#4fa94d"
+            ariaLabel="three-dots-loading"
+            wrapperStyle={{}}
+            wrapperClassName=""
+            visible={true}
+
+        />
     }
     if (user) {
         return children;
