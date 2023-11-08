@@ -31,7 +31,7 @@ const JobbyCategory = ({ job }) => {
     }
     return (
         <div>
-            <div className=" p-7 bg-base-100 shadow-xl space-y-5 rounded-lg">
+            <div className=" p-7 bg-base-100 shadow-xl space-y-5 outline outline-1 outline-cyan-700 rounded-lg">
                 <div className=' flex justify-between items-center'>
                     <div>
                         <h1 className=' text-4xl'>

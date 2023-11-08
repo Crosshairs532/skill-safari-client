@@ -42,7 +42,7 @@ const CategorySection = () => {
                 <TabPanel className=" mt-6">
                     <>
                         <h1 className=' ' >All</h1>
-                        <div className=' grid lg:grid-cols-3 gap-3 place-items-center mx-auto border-2 bg-slate-600'>
+                        <div className=' grid lg:grid-cols-3 gap-3 place-items-center mx-auto'>
                             {
                                 allJobs?.map((job, idx) => <JobbyCategory key={idx} job={job}></JobbyCategory>)
                             }

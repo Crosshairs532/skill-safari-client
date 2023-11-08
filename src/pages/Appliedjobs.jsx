@@ -1,6 +1,9 @@
 import React from 'react';
+import { useLoaderData } from 'react-router-dom';
 
 const Appliedjobs = () => {
+    const load = useLoaderData();
+    console.log(load);
     return (
         <div>
 
