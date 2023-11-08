@@ -1,11 +1,15 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { FaGoogleWallet } from 'react-icons/fa';
 import { AuthContext } from '../AuthProvider/AuthProvider';
+import moment from 'moment';
+import { useEffect } from 'react';
 
 const Modal = ({ load }) => {
     const { user } = useContext(AuthContext);
+    const [isDisabled, setdisabled] = useState(true);
+    const [today, setToday] = useState();
     const { _id,
         image,
         Pname,
@@ -18,6 +22,21 @@ const Modal = ({ load }) => {
         deadline1
 
     } = load;
+
+    useEffect(() => {
+        const currentDate = moment().format('YYYY-MM-DD');
+        setToday(currentDate)
+        if (today > deadline1) {
+
+            setdisabled(true)
+        }
+        else {
+
+            setdisabled(false)
+        }
+    }, [today, deadline1])
+
+
     return (
         <div>
             {/* Open the modal using document.getElementById('ID').showModal() method */}
@@ -49,7 +68,7 @@ const Modal = ({ load }) => {
 
                         </div>
                         <div className="form-control mt-6">
-                            <button className="btn btn-primary">Submit</button>
+                            <button className={`btn btn-primary`} disabled={isDisabled}>Submit</button>
                         </div>
                     </form>
 
