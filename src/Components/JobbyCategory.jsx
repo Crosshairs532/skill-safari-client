@@ -31,7 +31,7 @@ const JobbyCategory = ({ job }) => {
     }
     return (
         <div>
-            <div className=" p-7 w-[400px] bg-base-100 shadow-xl space-y-5 rounded-lg">
+            <div className=" p-7 bg-base-100 shadow-xl space-y-5 rounded-lg">
                 <div className=' flex justify-between items-center'>
                     <div>
                         <h1 className=' text-4xl'>
@@ -55,18 +55,21 @@ const JobbyCategory = ({ job }) => {
                 <div>
                     <h2 className=" text-2xl font-bold">{Jtitle}</h2>
                     <p className=" text-sm">by {Pname}</p>
-                    <p>Posted Date: {postdate1}</p>
+
                 </div>
                 <div className=" flex justify-around items-center gap-3">
-                    <button className="btn btn-outline bg-red-200 p-3 rounded-2xl  w-[100px]">{Jtype}</button>
-                    <p>Job Id: {applicants}</p>
-                    <p className=" btn btn-outline">{salary}</p>
+                    <p className=" hover:outline-orange-500 hover:text-orange-500 duration-200  outline outline-1 p-2 rounded-md">{Jtype}</p>
+                    <p><span className=' font-bold'>Job Id</span>: {applicants}</p>
+                    <p className=" outline outline-1 hover:outline-cyan-800 hover:text-sky-600 duration-200 p-2 rounded-md">{salary}</p>
 
 
                 </div>
 
                 <div className=" flex justify-between items-center">
-                    <h3>Deadline: {deadline1}</h3>
+                    <div>
+                        <h3 ><span className=' font-bold'>Deadline:</span> {deadline1}</h3>
+                        <p  ><span className=' font-bold'>Posted Date:</span> {postdate1}</p>
+                    </div>
                     <Link to={`details/${_id}`}> <button onClick={() => handleDetails(_id)} className="btn btn-primary">View Details</button></Link>
                 </div>
 

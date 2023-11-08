@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import EachData from '../Components/EachData';
 import SearchBar from '../Components/Search_related/SearchBar';
 
@@ -17,10 +17,10 @@ const Alljobs = () => {
     }, [])
 
     const handleSearch = (query) => {
-        console.log(query);
+        console.log(query, "search");
         if (query) {
             const filteredJobs =
-                alljob.filter((job) => job.title.toLowerCase().includes(query.toLowerCase()));
+                alljob.filter((job) => job.Jtitle.toLowerCase().includes(query.toLowerCase()));
             console.log(filteredJobs, "why man");
             setSearchitem(filteredJobs)
 
@@ -29,9 +29,6 @@ const Alljobs = () => {
         }
 
     };
-
-
-
 
 
 
@@ -63,7 +60,7 @@ const Alljobs = () => {
                         </thead>
                         <tbody className=' bg-slate-100'>
                             {
-                                searchItem?.map(job => <EachData key={job.id} job={job} ></EachData>)
+                                searchItem?.map(job => <EachData key={job._id} job={job} ></EachData>)
                             }
                         </tbody>
                         {/* foot */}
@@ -84,6 +81,13 @@ const Alljobs = () => {
 
             </div>
         </div>
+
+
+        // cahtgpt
+
+
+
+
     );
 };
 

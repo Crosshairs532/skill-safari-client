@@ -6,13 +6,17 @@ const SearchBar = ({ onSearch }) => {
 
     const handleSearch = () => {
         onSearch(searchQuery);
+        console.log(searchQuery);
     };
 
     return (
         <div>
-            <input type="text" placeholder="Search for jobs..." className="input input-bordered input-info w-full max-w-xs" onChange={(e) => { e.preventDefault(); onSearch(e.target.value); setSearchQuery(e.target.value) }} />
-
-            <button className=' btn mt-2' onClick={handleSearch}>Search</button>
+            <input
+                type="text"
+                placeholder="Search for jobs..."
+                onChange={(e) => { e.preventDefault(); onSearch(e.target.value); setSearchQuery(e.target.value) }}
+            />
+            <button onClick={handleSearch}>Search</button>
         </div>
     );
 };

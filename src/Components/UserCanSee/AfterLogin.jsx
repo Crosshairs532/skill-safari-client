@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 const AfterLogin = () => {
     return (
-        <div className=" flex">
+        <div className=" flex flex-col lg:flex-row md:flex-row">
             <li><NavLink to='addjob' className={({ isActive }) =>
                 isActive ? "bg-red-500" : ""
             }>Add a Job</NavLink></li>

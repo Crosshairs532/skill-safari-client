@@ -59,7 +59,7 @@ const Header = () => {
                         </ul>
                     </div>
                     <div className=" border-2  flex gap-5 items-center justify-between">
-                        <Lottie className=" w-[100px]" animationData={logo} loop={true}></Lottie>
+                        <Lottie className=" hidden lg:block mg:block w-[100px]" animationData={logo} loop={true}></Lottie>
                         <button onClick={handleClick}><h1 className=" text-4xl font-bold">Job hunter</h1></button>
 
                     </div>
@@ -77,7 +77,7 @@ const Header = () => {
                         user ? <div className="dropdown dropdown-end ">
 
 
-                            <label tabIndex={0} className="btn btn-ghost btn-circle avatar tooltip" data-tip={`${user?.displayName}`}>
+                            <label tabIndex={0} className="btn btn-ghost btn-circle avatar lg:tooltip" data-tip={`${user?.displayName}`}>
                                 <div className="w-10 rounded-full" >
                                     <img src={user.photoURL} alt="User Profile" />
                                 </div>
