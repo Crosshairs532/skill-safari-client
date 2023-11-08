@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { FaGoogleWallet } from "react-icons/fa";
 import { useLoaderData } from "react-router-dom";
+import Modal from "./Modal";
 
 
 const JobDetails = () => {
@@ -25,7 +26,8 @@ const JobDetails = () => {
                 </div>
                 <div className=" flex flex-col px-3 lg:flex-row md:flex-row md:justify-between lg:justify-between justify-evenly mt-24">
                     <h1 className=" text-3xl font-bold">{Jtitle}</h1>
-                    <button className=" btn btn-secondary">Apply Now</button>
+                    {/* <button className=" btn btn-secondary">Apply Now</button> */}
+                    <Modal load={load} ></Modal>
 
                 </div>
                 <div className=" flex gap-3 flex-col justify-center  items-center">
