@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { useState } from "react";
 import DatePicker from "react-datepicker";
 import { AuthContext } from "../AuthProvider/AuthProvider";
+import Swal from "sweetalert2";
 
 
 const Update = ({ job }) => {
@@ -41,12 +42,25 @@ const Update = ({ job }) => {
         fetch(`http://localhost:4000/allJobs/${_id}`, {
             method: "PUT",
             headers: {
-                "content-type": "application/json"
+                "content-type": "application/json",
             },
             body: JSON.stringify(EachJob)
         })
-            .then(res => { console.log(res); })
-            .catch(er => { console.log(er); })
+            .then(res =>
+                res.json()
+            )
+            .then(data => {
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Job details updated",
+                    showConfirmButton: false,
+                    timer: 1500,
+                }).then(() => {
+                    location.reload();
+                });
+
+            })
     }
 
 

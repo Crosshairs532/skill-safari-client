@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 
 import { useState } from 'react';
 
@@ -12,11 +13,12 @@ const SearchBar = ({ onSearch }) => {
     return (
         <div>
             <input
+                className=' outline rounded-md px-2 py-2'
                 type="text"
                 placeholder="Search for jobs..."
                 onChange={(e) => { e.preventDefault(); onSearch(e.target.value); setSearchQuery(e.target.value) }}
             />
-            <button onClick={handleSearch}>Search</button>
+            <button className=' p-2 outline outline-1 outline-orange-400 text-orange-400 rounded-lg' onClick={handleSearch}>Search</button>
         </div>
     );
 };

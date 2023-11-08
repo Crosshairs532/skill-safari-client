@@ -1,7 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useContext, useState } from "react";
 import { useEffect } from "react";
-import auth from "../Config/firebase.config";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import PostedJob from "../Components/PostedJob";
 

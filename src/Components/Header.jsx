@@ -58,9 +58,9 @@ const Header = () => {
                             }
                         </ul>
                     </div>
-                    <div className=" border-2  flex gap-5 items-center justify-between">
+                    <div className=" flex gap-5 items-center justify-between">
                         <Lottie className=" hidden lg:block mg:block w-[100px]" animationData={logo} loop={true}></Lottie>
-                        <button onClick={handleClick}><h1 className=" text-4xl font-bold">Job hunter</h1></button>
+                        <button onClick={handleClick}><h1 className=" text-4xl font-bold">SkillSafari</h1></button>
 
                     </div>
                 </div>
