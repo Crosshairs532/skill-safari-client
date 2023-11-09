@@ -29,9 +29,9 @@ const CategorySection = () => {
 
 
     return (
-        <div className=' relative'>
+        <div className=' relative min-h-screen'>
             <Tabs>
-                <TabList className=" text-center">
+                <TabList className=" text-center font-poppins">
                     <Tab onClick={() => handleJobsSearch('')}>All Jobs</Tab>
                     <Tab onClick={() => handleJobsSearch('Remote')}>Remote Jobs</Tab>
                     <Tab onClick={() => handleJobsSearch('Part-Time')}>Part Time Jobs</Tab>
@@ -39,16 +39,16 @@ const CategorySection = () => {
                     <Tab onClick={() => handleJobsSearch('On Site')}>On Site</Tab>
                 </TabList>
 
-                <TabPanel className=" mt-6">
-                    <>
-                        <h1 className=' ' >All</h1>
-                        <div className=' grid lg:grid-cols-3 gap-3 place-items-center mx-auto min-h-[70vh] bg-slate-400'>
-                            {
-                                allJobs?.map((job, idx) => <JobbyCategory key={idx} job={job}></JobbyCategory>)
-                            }
+                <TabPanel className="">
 
-                        </div>
-                    </>
+                    <h1 className=' ' >All</h1>
+                    <div className=' grid lg:grid-cols-3 gap-3 place-items-center mx-auto min-h-[70vh] '>
+                        {
+                            allJobs?.map((job, idx) => <JobbyCategory key={idx} job={job}></JobbyCategory>)
+                        }
+
+                    </div>
+
                 </TabPanel>
                 <TabPanel>
                     <h2>Remote</h2>

@@ -28,7 +28,8 @@ const EachData = ({ job }) => {
         <tr>
             <th>
                 <label>
-                    <input type="checkbox" className="checkbox" />
+                    {/* <input type="checkbox" className="checkbox" /> */}
+                    <img src={image} className=" w-[30px] h-[30px]" alt="" />
                 </label>
             </th>
             <td>
@@ -43,8 +44,12 @@ const EachData = ({ job }) => {
             <td>
                 {Jtitle}
                 <br />
-                <span className="badge badge-ghost badge-sm">{Jtype}</span>
+                <div className=" flex flex-col gap-1">
+                    <span className="badge badge-ghost badge-sm outline outline-1 outline-cyan-700 text-cyan-700  h-auto">{Jtype}</span>
+                    <span className="badge badge-ghost badge-sm outline outline-1 outline-cyan-700 text-cyan-700">Applicants:{applicants}</span>
+                </div>
             </td>
+            <td className="">{description.slice(0, 10)}..</td>
             <td>{postdate1}</td>
             <td>{deadline1}</td>
             <td>{salary}</td>

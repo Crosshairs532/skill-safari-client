@@ -7,9 +7,9 @@ import logo from '../assets/logo.json'
 const Footer = () => {
     return (
         <div>
-            <footer className="footer p-10 bg-base-200 text-base-content">
+            <footer className="footer p-10 bg-[#557C55] text-slate-50">
                 <aside>
-                    <Lottie className=" w-[100px]" animationData={logo}></Lottie>
+                    <Lottie className=" w-[100px] text-[#A6CF98]" animationData={logo}></Lottie>
                     <p><span className=" text-3xl">Job Hunter.</span><br />Most trusting Job seeking platform since 2013</p>
                     <div className=' media flex gap-3'>
                         <h1 className=' text-3xl '>       <BsFacebook /></h1>
@@ -42,7 +42,7 @@ const Footer = () => {
                 </nav>
 
             </footer>
-            <div className=" text-center bg-yellow-950 text-white">
+            <div className=" text-center bg-black text-[#A6CF98] font-poppins">
                 <p>Copyright © 2023 - All right reserved</p>
             </div>
 

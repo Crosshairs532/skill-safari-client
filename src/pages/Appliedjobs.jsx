@@ -61,8 +61,8 @@ const Appliedjobs = () => {
                 </div> */}
 
                 <div className=' select-field'>
-                    <label htmlFor="select">Select Job Type:</label>
-                    <select value={selectedValue} onChange={handleChange}>
+                    <label htmlFor="select" className=' text-xl font-bold'>Select Job Type:</label>
+                    <select value={selectedValue} className=' outline ' onChange={handleChange}>
                         <option value="">All Jobs</option>
                         <option value="On Site">On Site</option>
                         <option value="Hybrid">Hybrid-jobs</option>
@@ -76,11 +76,7 @@ const Appliedjobs = () => {
                         {/* head */}
                         <thead>
                             <tr>
-                                <th>
-                                    <label>
-                                        <input type="checkbox" className="checkbox" />
-                                    </label>
-                                </th>
+
                                 <th>Name</th>
                                 <th>Email</th>
                                 <th>Resume Link</th>
@@ -96,12 +92,12 @@ const Appliedjobs = () => {
                         {/* foot */}
                         <tfoot>
                             <tr>
-                                <th></th>
+
                                 <th>Name</th>
                                 <th>Email</th>
                                 <th>Resume Link</th>
                                 <th>Category</th>
-                                <th></th>
+
                             </tr>
                         </tfoot>
 

@@ -36,39 +36,39 @@ const Alljobs = () => {
     return (
         <div className='  min-h-screen'>
             <div className=' flex gap-10 flex-col  lg:flex-row md:flex-row container mx-auto py-[60px]'>
-                <div className=' '>
+                <div className=' text-center md:text-left lg:text-left'>
                     <h1 className=' text-xl font-bold'> Search By Keywords</h1>
                     <SearchBar onSearch={handleSearch}></SearchBar>
                 </div>
                 <div className=" overflow-x-auto">
-                    <table className="table block">
+                    <table className="table">
                         {/* head */}
-                        <thead className=' hidden lg:block md:block'>
+                        <thead className=''>
                             <tr>
                                 <th>
-                                    <label>
-                                        <input type="checkbox" className="checkbox" />
-                                    </label>
+
                                 </th>
                                 <th>Name</th>
                                 <th>Job Title</th>
+                                <th>Description</th>
                                 <th>Job Posting Date</th>
                                 <th>Application Deadline</th>
                                 <th>Salary</th>
                                 <th></th>
                             </tr>
                         </thead>
-                        <tbody className=' bg-slate-100 block w-full'>
+                        <tbody className=' bg-slate-100 '>
                             {
                                 searchItem?.map(job => <EachData key={job._id} job={job} ></EachData>)
                             }
                         </tbody>
                         {/* foot */}
-                        <tfoot className=' hidden lg:block md:block'>
+                        <tfoot className=''>
                             <tr>
                                 <th></th>
                                 <th>Name</th>
                                 <th>Job Title</th>
+
                                 <th>Job Posting Date</th>
                                 <th>Application Deadline</th>
                                 <th>Salary</th>
