@@ -18,7 +18,7 @@ const Myjobs = () => {
 
     }, [user?.email])
     return (
-        <div className=" container mx-auto">
+        <div className=" container mx-auto font-poppins">
             <div className=" overflow-x-auto">
                 <table className="table">
                     {/* head */}

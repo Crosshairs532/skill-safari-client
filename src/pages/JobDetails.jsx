@@ -19,7 +19,7 @@ const JobDetails = () => {
 
     } = load;
     return (
-        <div className=" container mx-auto">
+        <div className=" container mx-auto font-poppins">
             <div className=" space-y-4">
                 <div className=" hidden lg:block md:block">
                     <img className=" w-full object-cover h-[300px]" src={image} alt="" />

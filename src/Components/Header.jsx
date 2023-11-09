@@ -6,6 +6,7 @@ import { useContext } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import AfterLogin from "./UserCanSee/AfterLogin";
 import Swal from "sweetalert2";
+import '../Css/Header.css'
 const Header = () => {
     const navigate = useNavigate();
     const { user, logout } = useContext(AuthContext);
@@ -29,15 +30,9 @@ const Header = () => {
     }
     const nav_items =
         <>
-            <li><NavLink to='/' className={({ isActive }) =>
-                isActive ? " bg-[#557C55] text-[white]" : ""
-            }>Home</NavLink></li>
-            <li><NavLink to='/alljob' className={({ isActive }) =>
-                isActive ? " bg-[#557C55] text-[white]" : ""
-            }>All Jobs</NavLink></li>
-            <li><NavLink to='/blog' className={({ isActive }) =>
-                isActive ? "bg-[#557C55] text-[white]" : ""
-            }>Blogs</NavLink></li>
+            <li><NavLink to='/' className=" activeroute">Home</NavLink></li>
+            <li><NavLink to='/alljob' className=" activeroute">All Jobs</NavLink></li>
+            <li><NavLink to='/blog' className=" activeroute">Blogs</NavLink></li>
             {
                 user &&
                 <AfterLogin></AfterLogin>
@@ -77,7 +72,7 @@ const Header = () => {
                         user ? <div className="dropdown dropdown-end ">
 
 
-                            <label tabIndex={0} className="btn btn-ghost btn-circle avatar lg:tooltip" data-tip={`${user?.displayName}`}>
+                            <label tabIndex={0} className="btn btn-ghost btn-circle avatar tooltip tooltip-left" data-tip={`${user?.displayName}`}>
                                 <div className="w-10 rounded-full" >
                                     <img src={user.photoURL} alt="User Profile" />
                                 </div>

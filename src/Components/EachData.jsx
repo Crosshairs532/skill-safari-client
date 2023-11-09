@@ -25,11 +25,11 @@ const EachData = ({ job }) => {
 
     return (
 
-        <tr>
+        <tr className=" text-[#2a4019]">
             <th>
                 <label>
                     {/* <input type="checkbox" className="checkbox" /> */}
-                    <img src={image} className=" w-[30px] h-[30px]" alt="" />
+                    <img src={image} className=" w-[20px] object-cover h-[20px]" alt="" />
                 </label>
             </th>
             <td>

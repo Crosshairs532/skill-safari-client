@@ -35,15 +35,15 @@ const Alljobs = () => {
 
     return (
         <div className='  min-h-screen'>
-            <div className=' flex gap-10 flex-col  lg:flex-row md:flex-row container mx-auto py-[60px]'>
+            <div className=' flex gap-10 flex-col lg:flex-row md:flex-row container mx-auto py-[60px]'>
                 <div className=' text-center md:text-left lg:text-left'>
                     <h1 className=' text-xl font-bold'> Search By Keywords</h1>
                     <SearchBar onSearch={handleSearch}></SearchBar>
                 </div>
-                <div className=" overflow-x-auto">
-                    <table className="table">
+                <div className=" overflow-x-auto rounded-md">
+                    <table className="table ">
                         {/* head */}
-                        <thead className=''>
+                        <thead className=' bg-[#557C55] text-[#F2FFE9]'>
                             <tr>
                                 <th>
 
@@ -63,12 +63,12 @@ const Alljobs = () => {
                             }
                         </tbody>
                         {/* foot */}
-                        <tfoot className=''>
+                        <tfoot className=' bg-[#557C55] text-[#F2FFE9]'>
                             <tr>
                                 <th></th>
                                 <th>Name</th>
                                 <th>Job Title</th>
-
+                                <th>Description</th>
                                 <th>Job Posting Date</th>
                                 <th>Application Deadline</th>
                                 <th>Salary</th>
