@@ -35,15 +35,15 @@ const Alljobs = () => {
 
     return (
         <div className='  min-h-screen'>
-            <div className=' flex gap-10 flex-col lg:flex-row md:flex-row container mx-auto py-[60px]'>
-                <div>
+            <div className=' flex gap-10 flex-col  lg:flex-row md:flex-row container mx-auto py-[60px]'>
+                <div className=' '>
                     <h1 className=' text-xl font-bold'> Search By Keywords</h1>
                     <SearchBar onSearch={handleSearch}></SearchBar>
                 </div>
-                <div className="overflow-x-auto ">
-                    <table className="table">
+                <div className=" overflow-x-auto">
+                    <table className="table block">
                         {/* head */}
-                        <thead>
+                        <thead className=' hidden lg:block md:block'>
                             <tr>
                                 <th>
                                     <label>
@@ -58,13 +58,13 @@ const Alljobs = () => {
                                 <th></th>
                             </tr>
                         </thead>
-                        <tbody className=' bg-slate-100'>
+                        <tbody className=' bg-slate-100 block w-full'>
                             {
                                 searchItem?.map(job => <EachData key={job._id} job={job} ></EachData>)
                             }
                         </tbody>
                         {/* foot */}
-                        <tfoot>
+                        <tfoot className=' hidden lg:block md:block'>
                             <tr>
                                 <th></th>
                                 <th>Name</th>
@@ -83,7 +83,6 @@ const Alljobs = () => {
         </div>
 
 
-        // cahtgpt
 
 
 

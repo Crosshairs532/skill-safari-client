@@ -47,7 +47,7 @@ const Modal = ({ load }) => {
         const name = e.target.name.value;
         const email = e.target.email.value;
         const resume = e.target.resume.value;
-        const job = { name, email, resume, _id }
+        const job = { name, email, resume, _id, Jtype }
         fetch(`http://localhost:4000/appliedjobs`, {
             method: "POST",
             headers: {

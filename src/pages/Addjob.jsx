@@ -2,11 +2,14 @@
 
 /* eslint-disable no-unused-vars */
 
-import "react-datepicker/dist/react-datepicker.css";
 import { useContext, useState } from "react";
 import Swal from "sweetalert2";
 import { AuthContext } from "../AuthProvider/AuthProvider";
-import Datepicker from '../pages/Datepicker'
+// import Datepicker from '../pages/Datepicker'
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+
+
 const Addjob = () => {
     const { user } = useContext(AuthContext);
     const [deadline, setDeadline] = useState(new Date());
@@ -99,7 +102,7 @@ const Addjob = () => {
                                             </div>
                                             <div className="md:col-span-2">
                                                 <label htmlFor="date" className=" mr-2">Application Deadline:</label>
-                                                <Datepicker
+                                                <DatePicker
                                                     dateFormat="yyyy/MM/dd"
                                                     showIcon
                                                     selected={deadline}
@@ -108,7 +111,7 @@ const Addjob = () => {
                                             </div>
                                             <div className="md:col-span-2">
                                                 <label htmlFor="date1" className=" mr-2">Application Posting date:</label>
-                                                <Datepicker
+                                                <DatePicker
                                                     dateFormat="yyyy/MM/dd"
                                                     showIcon
                                                     selected={postdate}

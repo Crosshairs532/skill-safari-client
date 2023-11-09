@@ -6,7 +6,8 @@ const EachAppliedjob = ({ job }) => {
     const { _id,
         name,
         email,
-        resume
+        resume,
+        Jtype
 
     } = job
     console.log(job);
@@ -28,7 +29,8 @@ const EachAppliedjob = ({ job }) => {
             </td>
 
             <td>{email}</td>
-            <td>{resume}</td>
+            <td><a href={resume} className=" text-sky-700 font-bold">Resume Link</a></td>
+            <td>{Jtype}</td>
 
         </tr>
     );
