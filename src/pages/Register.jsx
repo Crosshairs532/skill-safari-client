@@ -5,12 +5,13 @@ import { MdMarkEmailUnread } from "react-icons/md";
 import { BsKey } from 'react-icons/bs'
 import { CgProfile } from 'react-icons/cg';
 import { Link, useNavigate } from 'react-router-dom';
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { HiPhotograph } from 'react-icons/hi'
 import { AuthContext } from '../AuthProvider/AuthProvider';
 // import toast from 'react-hot-toast';
 import { updateProfile } from 'firebase/auth';
 import Swal from 'sweetalert2'
+import { Helmet } from 'react-helmet-async';
 // import auth from '../Config/firebase.config';
 const Register = () => {
     // const [email, setEmail] = useState('');
@@ -35,7 +36,9 @@ const Register = () => {
                     displayName: name,
                     photoURL: photo,
                 })
-                    .then(() => { })
+                    .then((res) => {
+                        console.log(res);
+                    })
                     .catch((er) => { console.log(er); })
                 Swal.fire({
                     position: "top-end",
@@ -46,7 +49,11 @@ const Register = () => {
                 });
 
                 goTo('/')
-                location.reload();
+                setTimeout(() => {
+                    location.reload();
+                }, 1500);
+                // location.reload();
+
 
             })
             .catch(er => {
@@ -64,11 +71,14 @@ const Register = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>SkillSafari | Registration</title>
+            </Helmet>
             <div className=" relative">
                 <h1 className=" -z-10 absolute -top-[100px] left-6 hidden lg:block lg:text-[200px] text-center opacity-5">Register Now</h1>
                 <div className="hero min-h-screen">
 
-                    <div className="hero-content flex-col lg:flex-row md:flex-row justify-between gap-11">
+                    <div className="hero-content flex-col lg:flex-row md:flex-row justify-between gap-11 font-poppins">
                         <div className="card w-full max-w-sm shadow-2xl bg-base-100">
                             <h1 className=' text-4xl text-center mt-3'>Register Now</h1>
                             <form onSubmit={handleRegister} className="card-body space-y-5">
@@ -112,7 +122,7 @@ const Register = () => {
                                     <button type='submit' className="btn btn-primary">Register Now</button>
                                 </div>
                             </form>
-                            <p className=' text-center'>Already Have any account? <Link className=' text-xl font-bold' to="/login">Login</Link></p>
+                            <p className=' text-center font-poppins pb-2'>Already Have any account? <Link className=' text-xl font-bold' to="/login">Login</Link></p>
                         </div>
                         <div className=' hidden lg:block md:block'>
                             <Lottie animationData={login} loop={true}></Lottie>

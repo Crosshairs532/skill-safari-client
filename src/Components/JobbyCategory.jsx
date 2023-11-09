@@ -25,7 +25,7 @@ const JobbyCategory = ({ job }) => {
 
     } = job
     const handleDetails = (id) => {
-        fetch(`http://localhost:4000/allJobs/details?id=${id}`)
+        fetch(`https://job-seeking-server-eight.vercel.app/allJobs/details?id=${id}`)
             .then(res => res.json())
             .then(data => console.log(data))
     }

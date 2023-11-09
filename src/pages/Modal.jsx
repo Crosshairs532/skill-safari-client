@@ -48,7 +48,7 @@ const Modal = ({ load }) => {
         const email = e.target.email.value;
         const resume = e.target.resume.value;
         const job = { name, email, resume, _id, Jtype }
-        fetch(`http://localhost:4000/appliedjobs`, {
+        fetch(`https://job-seeking-server-eight.vercel.app/appliedjobs`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

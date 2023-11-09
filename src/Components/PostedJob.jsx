@@ -31,7 +31,7 @@ const PostedJob = ({ job }) => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`http://localhost:4000/allJobs/${id}`, {
+                fetch(`https://job-seeking-server-eight.vercel.app/allJobs/${id}`, {
                     method: "DELETE"
                 })
                     .then(res =>

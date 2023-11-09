@@ -4,13 +4,14 @@ import { useEffect, useState } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import JobbyCategory from './JobbyCategory';
+import '../Css/Header.css'
 const CategorySection = () => {
     const [allJobs, setJobs] = useState([]);
     const [categoryWise, setCategory] = useState([]);
 
     useEffect(() => {
         // Fetch all jobs when the component mounts
-        fetch('http://localhost:4000/allJobs')
+        fetch('https://job-seeking-server-eight.vercel.app/allJobs')
             .then(res => res.json())
             .then(data => {
                 console.log(data, "is it running?");
@@ -19,7 +20,7 @@ const CategorySection = () => {
     }, []);
 
     const handleJobsSearch = (type) => {
-        fetch(`http://localhost:4000/allJobs?jobtype=${type}`)
+        fetch(`https://job-seeking-server-eight.vercel.app/allJobs?jobtype=${type}`)
             .then(res => res.json())
             .then(data => {
                 setCategory(data);
@@ -31,7 +32,7 @@ const CategorySection = () => {
     return (
         <div className=' relative min-h-screen'>
             <Tabs>
-                <TabList className=" text-center font-poppins">
+                <TabList className=" text-center bg-[#557C55] flex flex-col lg:flex-row md:flex-row justify-center rounded-lg font-poppins">
                     <Tab onClick={() => handleJobsSearch('')}>All Jobs</Tab>
                     <Tab onClick={() => handleJobsSearch('Remote')}>Remote Jobs</Tab>
                     <Tab onClick={() => handleJobsSearch('Part-Time')}>Part Time Jobs</Tab>
@@ -52,7 +53,7 @@ const CategorySection = () => {
                 </TabPanel>
                 <TabPanel>
                     <h2>Remote</h2>
-                    <div className=' grid lg:grid-cols-3 gap-3 place-items-center mx-auto border-2 min-h-[70vh]'>
+                    <div className=' grid lg:grid-cols-3 gap-3 place-items-center mx-auto min-h-[70vh]'>
                         {
                             categoryWise.map((job, idx) => <JobbyCategory key={idx} job={job}></JobbyCategory>)
                         }
@@ -60,7 +61,7 @@ const CategorySection = () => {
                 </TabPanel>
                 <TabPanel>
                     <h2>Part-time</h2>
-                    <div className=' grid lg:grid-cols-3 gap-3 place-items-center mx-auto border-2 min-h-[70vh]'>
+                    <div className=' grid lg:grid-cols-3 gap-3 place-items-center mx-auto min-h-[70vh]'>
                         {
                             categoryWise.map((job, idx) => <JobbyCategory key={idx} job={job}></JobbyCategory>)
                         }
@@ -68,7 +69,7 @@ const CategorySection = () => {
                 </TabPanel>
                 <TabPanel>
                     <h2>Hybrid</h2>
-                    <div className=' grid lg:grid-cols-3 gap-3 place-items-center mx-auto border-2 min-h-[70vh]'>
+                    <div className=' grid lg:grid-cols-3 gap-3 place-items-center mx-auto min-h-[70vh]'>
                         {
                             categoryWise.map((job, idx) => <JobbyCategory key={idx} job={job}></JobbyCategory>)
                         }
@@ -76,7 +77,7 @@ const CategorySection = () => {
                 </TabPanel>
                 <TabPanel>
                     <h2>on-site</h2>
-                    <div className=' grid lg:grid-cols-3 gap-3 place-items-center mx-auto border-2 min-h-[70vh]'>
+                    <div className=' grid lg:grid-cols-3 gap-3 place-items-center mx-auto  min-h-[70vh]'>
                         {
                             categoryWise.map((job, idx) => <JobbyCategory key={idx} job={job}></JobbyCategory>)
                         }

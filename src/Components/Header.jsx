@@ -23,6 +23,8 @@ const Header = () => {
                 showConfirmButton: false,
                 timer: 1500
             });
+            navigate('/')
+
         }
         catch (err) {
             console.log(err);
@@ -90,7 +92,7 @@ const Header = () => {
                                 <li><a>Name: {user.displayName}</a></li>
                                 <li><button className=" bg-[#FA7070]" onClick={handleLogout}>Logout</button></li>
                             </ul>
-                        </div> : <Link to='login' className=" text-2xl"> Login</Link>
+                        </div> : <Link to='/login' className=" text-2xl font-poppins hover:bg-[#557C55] hover:text-[#bddcbd] rounded-md p-2"> Login</Link>
                     }
 
                 </div>

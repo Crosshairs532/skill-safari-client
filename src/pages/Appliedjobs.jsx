@@ -1,16 +1,19 @@
 
 // import SearchBar from '../Components/Search_related/SearchBar';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import EachAppliedjob from './EachAppliedjob';
 import { CgLaptop } from 'react-icons/cg';
+import { AuthContext } from '../AuthProvider/AuthProvider';
+import { Helmet } from 'react-helmet-async';
 
 const Appliedjobs = () => {
+    const { user } = useContext(AuthContext);
     const [alljob, setJobs] = useState(null);
     const [searchItem, setSearchitem] = useState([]);
     const [selectedValue, setSelectedValue] = useState('All');
     console.log(alljob, "all jobs");
     useEffect(() => {
-        fetch('http://localhost:4000/appliedjobs')
+        fetch(`https://job-seeking-server-eight.vercel.app/appliedjobs/${user?.email}`, { credentials: 'include' })
             .then(res => res.json())
             .then(data => {
                 console.log(data);
@@ -18,7 +21,7 @@ const Appliedjobs = () => {
                 setSearchitem(data)
             })
 
-    }, [])
+    }, [user?.email])
 
     // const handleSearch = (query) => {
     //     console.log(query, "search");
@@ -54,6 +57,9 @@ const Appliedjobs = () => {
 
     return (
         <div className='  min-h-screen'>
+            <Helmet>
+                <title>SkillSafari | Applied Jobs</title>
+            </Helmet>
             <div className=' flex gap-10 flex-col lg:flex-row justify-evenly md:flex-row container mx-auto py-[60px]'>
                 {/* <div>
                     <h1 className=' text-xl font-bold'> Search By Keywords</h1>

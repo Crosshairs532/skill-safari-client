@@ -4,9 +4,14 @@ import { BsFillPencilFill } from 'react-icons/bs'
 import { BiLogoFlutter, BiLogoPaypal } from 'react-icons/bi'
 
 import { AiOutlineLogin, AiFillAmazonSquare } from 'react-icons/ai'
+import { Helmet } from "react-helmet-async";
 const Home = () => {
+
     return (
         <div>
+            <Helmet>
+                <title>SkillSafari | Home</title>
+            </Helmet>
 
             <div className=" pt-[100px]">
                 <h1 className=" text-5xl font-bold text-center font-poppins text-[#557C55]">Job Info </h1>

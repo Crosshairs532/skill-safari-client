@@ -1,13 +1,14 @@
 import { useEffect, useState } from 'react';
 import EachData from '../Components/EachData';
 import SearchBar from '../Components/Search_related/SearchBar';
+import { Helmet } from 'react-helmet-async';
 
 const Alljobs = () => {
     const [alljob, setJobs] = useState(null);
     const [searchItem, setSearchitem] = useState();
 
     useEffect(() => {
-        fetch('http://localhost:4000/allJobs')
+        fetch('https://job-seeking-server-eight.vercel.app/allJobs')
             .then(res => res.json())
             .then(data => {
                 setJobs(data);
@@ -35,6 +36,9 @@ const Alljobs = () => {
 
     return (
         <div className='  min-h-screen'>
+            <Helmet>
+                <title>SkillSafari | All Jobs</title>
+            </Helmet>
             <div className=' flex gap-10 flex-col lg:flex-row md:flex-row container mx-auto py-[60px]'>
                 <div className=' text-center md:text-left lg:text-left'>
                     <h1 className=' text-xl font-bold'> Search By Keywords</h1>
@@ -48,7 +52,7 @@ const Alljobs = () => {
                                 <th>
 
                                 </th>
-                                <th>Name</th>
+                                <th>Posted BY</th>
                                 <th>Job Title</th>
                                 <th>Description</th>
                                 <th>Job Posting Date</th>

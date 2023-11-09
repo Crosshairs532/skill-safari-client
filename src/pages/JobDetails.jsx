@@ -2,6 +2,7 @@
 import { FaGoogleWallet } from "react-icons/fa";
 import { useLoaderData } from "react-router-dom";
 import Modal from "./Modal";
+import { Helmet } from "react-helmet-async";
 
 
 const JobDetails = () => {
@@ -20,6 +21,9 @@ const JobDetails = () => {
     } = load;
     return (
         <div className=" container mx-auto font-poppins">
+            <Helmet>
+                <title>SkillSafari | Job Details</title>
+            </Helmet>
             <div className=" space-y-4">
                 <div className=" hidden lg:block md:block">
                     <img className=" w-full object-cover h-[300px]" src={image} alt="" />

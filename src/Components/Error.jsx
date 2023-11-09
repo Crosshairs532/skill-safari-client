@@ -8,9 +8,9 @@ const Error = () => {
         GoTo('/')
     }
     return (
-        <div className=" flex flex-col items-center bg-black h-[100vh] w-full">
+        <div className=" flex flex-col min-h-screen justify-center items-center bg-black w-full">
 
-            <div className=" w-[500px] h-[600px] mx-auto">
+            <div className=" w-[200px] h-[200px] lg:w-[500px] lg:h-[600px] mx-auto">
                 <Lottie animationData={err} loop={true}></Lottie>
             </div>
             <div>

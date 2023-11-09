@@ -1,9 +1,13 @@
 /* eslint-disable react/no-unescaped-entities */
+import { Helmet } from 'react-helmet-async';
 import image from '../assets/code.png'
 
 const Blog = () => {
     return (
         <div>
+            <Helmet>
+                <title>SkillSafari | Blogs</title>
+            </Helmet>
             <div className=" container mx-auto mt-4 text-justify px-4 py-3 space-y-4">
 
 

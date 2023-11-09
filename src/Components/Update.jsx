@@ -39,7 +39,7 @@ const Update = ({ job }) => {
         const EachJob = { image, Pname, Jtitle, salary, Jtype, applicants, description, postdate1, deadline1 };
         console.log(EachJob);
 
-        fetch(`http://localhost:4000/allJobs/${_id}`, {
+        fetch(`https://job-seeking-server-eight.vercel.app/allJobs/${_id}`, {
             method: "PUT",
             headers: {
                 "content-type": "application/json",
@@ -50,16 +50,19 @@ const Update = ({ job }) => {
                 res.json()
             )
             .then(data => {
-                Swal.fire({
-                    position: "top-end",
-                    icon: "success",
-                    title: "Job details updated",
-                    showConfirmButton: false,
-                    timer: 1500,
-                }).then(() => {
-                    location.reload();
-                });
+                console.log(data);
+                if (data.modifiedCount > 0) {
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: "Job details updated",
+                        showConfirmButton: false,
+                        timer: 1500,
+                    }).then(() => {
+                        location.reload();
+                    });
 
+                }
             })
     }
 

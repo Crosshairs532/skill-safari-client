@@ -4,12 +4,17 @@ import router from './Router/Router'
 import { RouterProvider } from 'react-router-dom'
 import './index.css'
 import AuthProvider from './AuthProvider/AuthProvider'
+import { HelmetProvider } from 'react-helmet-async';
 // import toast, { Toaster } from 'react-hot-toast';
 ReactDOM.createRoot(document.getElementById('root')).render(
+
   <React.StrictMode>
-    <AuthProvider>
-      <RouterProvider router={router}></RouterProvider>
-    </AuthProvider>
+    <HelmetProvider>
+      <AuthProvider>
+        <RouterProvider router={router}></RouterProvider>
+      </AuthProvider>
+    </HelmetProvider>
+
     {/* <Toaster /> */}
   </React.StrictMode>,
 )

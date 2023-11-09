@@ -25,8 +25,9 @@ const PrivateRoute = ({ children }) => {
     Swal.fire({
         icon: "error",
         title: "Oops...",
-        text: "You have to login First",
-        footer: '<a href="#">Why do I have this issue?</a>'
+        text: "You have to login First to view details",
+        timer: 1500
+        // footer: '<a href="#">Why do I have this issue?</a>'
     });
     return <Navigate to='/login' state={location.pathname} replace></Navigate>
 };

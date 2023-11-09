@@ -8,6 +8,7 @@ import { FcGoogle } from 'react-icons/fc'
 import { useContext } from 'react';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet-async';
 
 const Login = () => {
     const location = useLocation();
@@ -28,7 +29,7 @@ const Login = () => {
             Swal.fire({
                 position: "top-end",
                 icon: "success",
-                title: "Your work has been saved",
+                title: "logged in successfully",
                 showConfirmButton: false,
                 timer: 1500
             });
@@ -38,6 +39,12 @@ const Login = () => {
             }
         }
         catch (err) {
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Something went wrong!",
+                footer: `${err.message}`
+            });
             console.log(err);
         }
     }
@@ -48,7 +55,7 @@ const Login = () => {
                 Swal.fire({
                     position: "top-end",
                     icon: "success",
-                    title: "Your work has been saved",
+                    title: "logged in successfully",
                     showConfirmButton: false,
                     timer: 1500
                 })
@@ -69,7 +76,10 @@ const Login = () => {
     }
     return (
         <div>
-            <div className=" relative">
+            <Helmet>
+                <title>SkillSafari | Login</title>
+            </Helmet>
+            <div className=" relative font-poppins">
                 <h1 className=" -z-10 absolute -top-[100px] left-6 hidden lg:block lg:text-[200px] text-center opacity-5">Login</h1>
                 <div className="hero min-h-screen">
 
@@ -100,7 +110,7 @@ const Login = () => {
                                         <button type='submit' className="btn btn-primary">Login</button>
                                     </div>
                                 </form>
-                                <p className=' text-center'>Don't Have any account? <br className=' lg:hidden block md:hidden' /> <Link to='/register' className=' text-xl font-bold text-cyan-700'>Register Now</Link></p>
+                                <p className=' text-center font-poppins px-2 pb-2 text-sm'>Don't Have any account? <br className=' lg:hidden block md:hidden' /> <Link to='/register' className=' text-xm font-bold text-cyan-700'>Register Now</Link></p>
                             </div>
                             <div className=' bg-base-100 shadow-2xl p-3 rounded-xl'>
                                 <button onClick={handleGoogle} className=' text-4xl'><FcGoogle></FcGoogle></button>

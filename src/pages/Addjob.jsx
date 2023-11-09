@@ -8,6 +8,7 @@ import { AuthContext } from "../AuthProvider/AuthProvider";
 // import Datepicker from '../pages/Datepicker'
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { Helmet } from "react-helmet-async";
 
 
 const Addjob = () => {
@@ -27,7 +28,7 @@ const Addjob = () => {
         const deadline1 = deadline.toISOString().split('T')[0];
         const EachJob = { image, Pname, Jtitle, salary, Jtype, applicants, description, postdate1, deadline1, Pemail: user.email };
         console.log(EachJob);
-        fetch('http://localhost:4000/allJobs', {
+        fetch('https://job-seeking-server-eight.vercel.app/allJobs', {
 
             method: "POST",
             headers: {
@@ -52,6 +53,9 @@ const Addjob = () => {
     }
     return (
         <div>
+            <Helmet>
+                <title>SkillSafari | Add a Job</title>
+            </Helmet>
 
             <div className="min-h-screen p-6 flex items-center justify-center font-poppins">
                 <div className="container max-w-screen-lg mx-auto">
