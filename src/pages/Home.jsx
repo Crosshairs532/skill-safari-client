@@ -1,7 +1,9 @@
 import CategorySection from "../Components/CategorySection";
 import { CgProfile } from 'react-icons/cg'
 import { BsFillPencilFill } from 'react-icons/bs'
-import { AiOutlineLogin } from 'react-icons/ai'
+import { BiLogoFlutter, BiLogoPaypal } from 'react-icons/bi'
+
+import { AiOutlineLogin, AiFillAmazonSquare } from 'react-icons/ai'
 const Home = () => {
     return (
         <div>
@@ -36,9 +38,35 @@ const Home = () => {
 
                 </div>
             </div>
+            <hr className=" container mx-auto" />
+            <div className=" min-h-screen font-poppins py-[50px] space-y-5">
+
+                <h1 className=" md:text-7xl text-5xl lg:text-7xl text-center font-bold mb-4 text-[#557C55]">Top Company</h1>
+                <p className=" text-xl text-center">Get hired From Top Company's. </p>
+                <div className=" flex lg:flex-row md:flex-row flex-col  justify-evenly items-center py-[100px]">
+                    <div className="  space-y-6 flex justify-center  items-center flex-col">
+                        <h1 className=" flex items-center justify-center text-4xl bg-[#557C55] w-[50px] h-[50px] text-white rounded-full">
+                            <BiLogoFlutter></BiLogoFlutter>
+                        </h1>
+                        <p>New York, New York; Seattle, Washington...</p>
+                    </div>
+                    <div className=" space-y-6  flex justify-center  items-center flex-col">
+                        <h1 className=" flex items-center justify-center text-4xl bg-[#557C55] w-[50px] h-[50px] text-white rounded-full">
+                            <AiFillAmazonSquare></AiFillAmazonSquare>
+                        </h1>
+                        <p>New York, New York; Seattle, Washington...</p>
+                    </div>
+                    <div className=" space-y-6  flex justify-center  items-center flex-col">
+                        <h1 className=" flex items-center justify-center text-4xl bg-[#557C55] w-[50px] h-[50px] text-white rounded-full">
+                            <BiLogoPaypal></BiLogoPaypal>
+                        </h1>
+                        <p>New York, New York; Seattle, Washington...</p>
+                    </div>
+                </div >
+            </div >
 
 
-        </div>
+        </div >
     );
 };
 

@@ -31,7 +31,7 @@ const JobbyCategory = ({ job }) => {
     }
     return (
         <div>
-            <div className=" p-7 bg-[#fbfffb] font-poppins shadow-2xl space-y-5 outline outline-1 outline-[#FA7070] duration-100 hover:outline-[#557C55] rounded-lg">
+            <div className=" p-7 lg:w-auto w-[350px] bg-[#fbfffb] font-poppins shadow-2xl space-y-5 outline outline-1 outline-[#FA7070] duration-100 hover:outline-[#557C55] rounded-lg">
                 <div className=' flex justify-between items-center'>
                     <div>
                         <h1 className=' text-4xl text-[#FA7070]'>
